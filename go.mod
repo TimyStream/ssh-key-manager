@@ -1,4 +1,4 @@
-module gitea.team-acedia.de/Project-Legacy/ssh-key-manager
+module github.com/TimyStream/ssh-key-manager
 
 go 1.19
 
