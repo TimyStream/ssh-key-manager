@@ -16,7 +16,8 @@ import (
 func main() {
 	fmt.Println("====================================")
 	fmt.Println("|| Welcome to the SSH Key Manager ||")
-	fmt.Println("====================================\n")
+	fmt.Println("====================================")
+	printEmtyLine()
 
 	menu("./test/authorized_keys")
 }
@@ -27,7 +28,8 @@ func menu(file string) {
 	fmt.Println("1. Table list of all SSH Keys")
 	fmt.Println("2. Add SSH Key")
 	fmt.Println("3. Remove SSH Key")
-	fmt.Println("4. Exit\n")
+	fmt.Println("4. Exit")
+	printEmtyLine()
 
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Choose [1,2,3,4]: ")
@@ -42,23 +44,24 @@ func menu(file string) {
 		printEmtyLine()
 		printEmtyLine()
 		menu(file)
-		break
 	case 2:
 		printEmtyLine()
 		appendFile(file)
 		printEmtyLine()
 		menu(file)
-		break
 	case 3:
 		printEmtyLine()
 		removeLine(file)
 		printEmtyLine()
 		menu(file)
-		break
 	case 4:
 		printEmtyLine()
 		fmt.Println("\n Thank you for using the SSH Key Manager. Bye :)")
 		os.Exit(0)
+	default:
+		fmt.Println("Wrong Input")
+		printEmtyLine()
+		menu(file)
 	}
 }
 
